@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-
 import {Product} from '../model/product';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -16,7 +15,9 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('http://localhost:8080/rest/products');
   }
-
+  getProduct(id): Observable <Product> {
+    return this.http.get<Product>('http://localhost:8080/rest/products/' + id);
+  }
   isTheLast(product: Product): boolean {
     return product.stock === 1;
   }

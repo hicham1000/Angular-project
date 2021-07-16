@@ -1,9 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProductComponent } from './product.component';
 import { Product } from '../model/product';
 import { ProductService } from '../services/product.service';
-
 const testProduct = new Product('title', 'description', 'photo', 42, 2);
 
 class ProductServiceMock {

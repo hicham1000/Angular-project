@@ -10,22 +10,23 @@ import {Router} from '@angular/router';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent {
-
+  
   basket: Product[] = [];
-
+  
   customer: Customer = new Customer();
-
+  
   constructor(private customerService: CustomerService,
-              private router: Router) {
-    this.customerService.getBasket().subscribe(result => {
-      this.basket = result;
-    });
+    private router: Router) {
+      this.customerService.getBasket().subscribe(result => {
+        this.basket = result;
+      });
+    }
+    
+    checkout(): void {
+      this.customerService.checkout(this.customer).subscribe(() => {
+        this.router.navigateByUrl('/home');
+      });
+    }
+    
   }
-
-  checkout(): void {
-    this.customerService.checkout(this.customer).subscribe(() => {
-      this.router.navigateByUrl('/home');
-    });
-  }
-
-}
+  

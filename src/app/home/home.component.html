@@ -19,7 +19,7 @@
 <div class="row text-center">
   <ng-container *ngFor="let product of products | sort:sortKey">
     <app-product *ngIf="isAvailable(product)" [data]="product"
-                 (addToBasket)="updatePrice($event)"></app-product>
+    (addToBasket)="updatePrice($event)"></app-product>
   </ng-container>
 </div>
 

@@ -1,0 +1,25 @@
+<header class="jumbotron hero-spacer">
+  <h1>{{productsdetailsd?.title}}</h1>
+  
+  <img class="img-fluid img-thumbnail targetphoto" src="{{productsdetailsd.photo}}" alt="">
+  <p>Your basket amounts to {{productsdetailsd.price | currency:'EUR'}}</p>
+  <p>product stock: {{productsdetailsd.stock}}</p>
+  <p> {{productsdetailsd.description}}</p>
+  <span *ngIf=" productsdetailsd.stock  === 1" [ngClass]="{'last' : productsdetailsd.stock  === 1}">LAST ONE AVAILABLE
+  </span>
+  
+  <p>
+    <a class="btn btn-primary btn-large" routerLink="/basket">See my basket</a>
+  </p>
+</header>
+<hr>
+
+<div class="row text-center">
+  
+  <ng-container *ngFor="let product of products">
+    <ng-container *ngIf ="productsdetailsd.title !== product.title"> 
+      <app-product *ngIf="isAvailable(product)" [data]="product" (addToBasket)="updatePrice($event)" >
+      </app-product>
+    </ng-container>
+  </ng-container>
+</div>
