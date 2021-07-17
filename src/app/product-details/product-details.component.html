@@ -1,11 +1,11 @@
 <header class="jumbotron hero-spacer">
   <h1>{{productsdetailsd?.title}}</h1>
   
-  <img class="img-fluid img-thumbnail targetphoto" src="{{productsdetailsd.photo}}" alt="">
-  <p>Your basket amounts to {{productsdetailsd.price | currency:'EUR'}}</p>
-  <p>product stock: {{productsdetailsd.stock}}</p>
-  <p> {{productsdetailsd.description}}</p>
-  <span *ngIf=" productsdetailsd.stock  === 1" [ngClass]="{'last' : productsdetailsd.stock  === 1}">LAST ONE AVAILABLE
+  <img class="img-fluid img-thumbnail targetphoto" src="{{productsdetailsd?.photo}}" alt="">
+  <p>Your basket amounts to {{productsdetailsd?.price | currency:'EUR'}}</p>
+  <p>product stock: {{productsdetailsd?.stock}}</p>
+  <p> {{productsdetailsd?.description}}</p>
+  <span *ngIf=" productsdetailsd?.stock  === 1" [ngClass]="{'last' : productsdetailsd.stock  === 1}">LAST ONE AVAILABLE
   </span>
   
   <p>
